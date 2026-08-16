@@ -47,7 +47,7 @@ func Scan(root, target string) ([]Finding, error) {
 		}
 		f, err := os.Open(path)
 		if err != nil {
-			return nil
+			return err
 		}
 		defer f.Close()
 		buf, err := io.ReadAll(io.LimitReader(f, 1<<20))
